@@ -5,8 +5,7 @@ Written as part of a mini-jam set by @CalMaths on twitter.
 
 Can be installed by cloning this repository via the `devtools` package:
 
-`library(devtools)`; 
-`devtools::install_git("EmmaRSims/EnigmaMachineR")`
+`library(devtools); devtools::install_github("EmmaRSims/EnigmaMachineR/EnigmaR")`
 
 To use, there are 5 inputs, of which only `message` is required:
 * `message` - a string with the message you wish to encode
