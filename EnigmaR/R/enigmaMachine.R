@@ -115,12 +115,15 @@ enigmaMachine <- function(message, rotorOrder, reflector, plugConnections, groun
     if(currentII == trips[2]){II = shiftState(II,1); II_ = shiftState(II_,1); III = shiftState(III,1); III_ = shiftState(III_,1)}
   }
 
-  for(i in 1:length(white_space_ind)){
-    temp = message_output[1:(white_space_ind[i] - 1)]
-    temp_ = message_output[white_space_ind[i]:length(message_output)]
+  if(length(white_space_ind > 0)){
+    for(i in 1:length(white_space_ind)){
+      temp = message_output[1:(white_space_ind[i] - 1)]
+      temp_ = message_output[white_space_ind[i]:length(message_output)]
 
-    message_output = c(temp, " ", temp_)
+      message_output = c(temp, " ", temp_)
+    }
   }
+
   message_final = ""
 
   for(i in 1:length(message_output)){
