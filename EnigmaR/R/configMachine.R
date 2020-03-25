@@ -7,7 +7,7 @@
 
 #   MACHINE SETUP
 
-configMachine <- function(cogs){
+configMachine <- function(cogs, shiftAlphabet){
 
   #Rotors
   I     <- unlist(strsplit(c("EKMFLGDQVZNTOWYHXUSPAIBRCJ"), ""))
@@ -20,13 +20,13 @@ configMachine <- function(cogs){
   NOTCHES = c("Q","E","V","J","Z")
 
   ALPHA <- unlist(strsplit(c("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), ""))
+  if(missing(shiftAlphabet)){shiftAlphabet = ALPHA}
   COGS  <- ROTORS[cogs]
   COGS_ <- matrix(0,nrow = 26, ncol = 3)
 
   for(i in 1:3){
     for(j in 1:26){
-      ind = match(COGS[[i]][j], ALPHA)
-      COGS_[j,i] = ind - j + 1
+      COGS_[j,i] = match(COGS[[i]][j], shiftAlphabet) - j
     }
   }
 
